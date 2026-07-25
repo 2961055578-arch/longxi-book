@@ -3,279 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>龙息书摊 - 海量小说免费看</title>
+<title>龙息书摊 - 看完就上头的短篇故事</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f4f4;color:#333;overflow-x:hidden;min-height:100vh}
 ::-webkit-scrollbar{display:none}
-.top{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:linear-gradient(135deg,#e74c3c,#e67e22);
-  padding:10px 12px;display:flex;align-items:center;gap:8px;
-}
-.top .nm{font-size:17px;font-weight:700;color:#fff;white-space:nowrap}
+.top{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(135deg,#e74c3c,#e67e22);padding:12px 14px;display:flex;align-items:center;gap:10px}
+.top .nm{font-size:19px;font-weight:700;color:#fff;white-space:nowrap}
 .top .nm span{color:#f1c40f}
-.top .sb{
-  flex:1;height:32px;background:rgba(255,255,255,.25);border-radius:16px;
-  padding:0 12px;display:flex;align-items:center;gap:4px;
-}
-.top .sb i{color:rgba(255,255,255,.7);font-size:15px;font-style:normal}
-.top .sb input{
-  flex:1;border:0;background:0;outline:0;font-size:13px;color:#fff;
-  -webkit-appearance:none
-}
+.top .sb{flex:1;height:34px;background:rgba(255,255,255,.25);border-radius:17px;padding:0 14px;display:flex;align-items:center;gap:4px}
+.top .sb i{color:rgba(255,255,255,.7);font-size:14px;font-style:normal}
+.top .sb input{flex:1;border:0;background:0;outline:0;font-size:13px;color:#fff;-webkit-appearance:none}
 .top .sb input::placeholder{color:rgba(255,255,255,.6)}
-.top .mb{color:#fff;font-size:18px;cursor:pointer;font-style:normal;padding:4px}
-.bw{padding:10px 10px 0;margin-top:52px}
+.bw{padding:10px 10px 0;margin-top:58px}
 .bn{position:relative;border-radius:12px;overflow:hidden;background:#ddd;box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .bs{display:flex;transition:transform .4s}
-.bi{min-width:100%;position:relative;display:flex;align-items:flex-end;aspect-ratio:16/6;padding:12px}
+.bi{min-width:100%;position:relative;display:flex;align-items:flex-end;aspect-ratio:16/6;padding:14px}
 .bi .bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .bi .msk{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.7))}
 .bi .if{position:relative;z-index:1;color:#fff}
-.bi .if h2{font-size:15px;margin-bottom:2px}
-.bi .if p{font-size:11px;opacity:.85}
+.bi .if h2{font-size:15px;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:90%}
+.bi .if p{font-size:11px;opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bd{position:absolute;bottom:6px;right:10px;display:flex;gap:4px;z-index:2}
 .bd span{width:5px;height:5px;border-radius:3px;background:rgba(255,255,255,.4);transition:all .3s}
 .bd span.c{width:14px;background:#fff}
-.cn{display:flex;justify-content:space-around;padding:12px 4px 8px;background:#fff;margin:10px 10px 0;border-radius:12px}
-.cn .ci{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:#666;cursor:pointer}
-.cn .ci .ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;font-style:normal}
-.cn .ci:nth-child(1) .ic{background:#fde8e0;color:#e74c3c}
-.cn .ci:nth-child(2) .ic{background:#e0ecff;color:#2980b9}
-.cn .ci:nth-child(3) .ic{background:#e4fce4;color:#27ae60}
-.cn .ci:nth-child(4) .ic{background:#fef0d9;color:#e67e22}
-.cn .ci:nth-child(5) .ic{background:#ede4fc;color:#8e44ad}
-.tb{display:flex;padding:0 10px;margin-top:8px;background:#fff;border-bottom:1px solid #eee;overflow-x:auto}
+.tb{display:flex;padding:0 10px;margin-top:8px;background:#fff;border-bottom:1px solid #eee;overflow-x:auto;position:sticky;top:58px;z-index:50}
 .tb .tb-i{padding:10px 14px;font-size:13px;color:#666;white-space:nowrap;cursor:pointer;position:relative;flex-shrink:0}
 .tb .tb-i.c{color:#e74c3c;font-weight:600}
-.tb .tb-i.c::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18px;height:2.5px;background:#e74c3c;border-radius:2px}
+.tb .tb-i.c::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18px;height:2.5px;background:#e74c3c;border-radius:2px}
 .bl{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;padding-bottom:70px}
-.bc{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);cursor:pointer}
-.bc:active{opacity:.85}
-.bc .cv{width:100%;aspect-ratio:3/4;background:#e8e8e8;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bc{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);cursor:pointer;transition:transform .15s}
+.bc:active{transform:scale(.97)}
+.bc .cv{width:100%;aspect-ratio:3/4;background:#e8e8e8;position:relative;overflow:hidden}
 .bc .cv img{width:100%;height:100%;object-fit:cover;display:block}
 .bc .cv .tg{position:absolute;top:5px;left:5px;font-size:9px;padding:1px 7px;border-radius:6px;color:#fff;font-weight:500}
 .bc .cv .tg.h{background:#e74c3c}
 .bc .cv .tg.n{background:#27ae60}
 .bc .if{padding:8px 10px 10px}
-.bc .if h4{font-size:13px;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bc .if h4{font-size:13px;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;white-space:normal;line-height:1.3}
 .bc .if .au{font-size:11px;color:#999;margin-bottom:3px}
 .bc .if .mt{display:flex;justify-content:space-between;font-size:10px;color:#aaa}
 .bc .if .mt .st{color:#e67e22}
-.btm{
-  position:fixed;bottom:0;left:0;right:0;z-index:100;
-  background:#fff;display:flex;justify-content:space-around;align-items:center;
-  padding:5px 0 7px;border-top:1px solid #eee
-}
-.btm .bi{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10px;color:#999;cursor:pointer;min-width:48px}
-.btm .bi i{font-size:20px;line-height:1;font-style:normal}
-.btm .bi.c{color:#e74c3c}
-.toast{
-  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);
-  background:rgba(0,0,0,.78);color:#fff;padding:14px 24px;border-radius:10px;
-  font-size:13px;z-index:999;opacity:0;transition:all .25s;pointer-events:none;text-align:center;max-width:70%
-}
+.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);background:rgba(0,0,0,.78);color:#fff;padding:14px 24px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:all .25s;pointer-events:none;text-align:center;max-width:80%}
 .toast.s{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .rd{position:fixed;inset:0;z-index:200;background:#f5efe6;display:none;flex-direction:column}
 .rd.s{display:flex}
-.rd .rh{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #e0d8cc}
-.rd .rh i{font-size:18px;cursor:pointer;color:#666;font-style:normal}
-.rd .rh .rt{font-size:14px;font-weight:600;color:#333}
-.rd .rb{flex:1;padding:16px 20px;overflow-y:auto;line-height:1.9;font-size:16px;color:#3a3a3a}
-.rd .rb p{margin-bottom:10px;text-indent:2em}
-.rd .rf{display:flex;justify-content:space-around;padding:10px 14px;border-top:1px solid #e0d8cc}
-.rd .rf button{padding:7px 28px;border:0;border-radius:18px;font-size:13px;cursor:pointer;background:#e74c3c;color:#fff}
-.rd .rf button:active{opacity:.8}
-.rd .rf .ab{background:#f1c40f;color:#333;font-weight:600}
+.rd .rh{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid #e0d8cc;background:#f5efe6;position:sticky;top:0;z-index:10}
+.rd .rh .bk{font-size:20px;cursor:pointer;color:#666;font-style:normal;padding:4px 8px 4px 0}
+.rd .rh .rt{font-size:14px;font-weight:600;color:#333;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rd .rh .ad{font-size:11px;color:#999;background:#e0d8cc;padding:4px 12px;border-radius:12px;white-space:nowrap}
+.rd .rb{flex:1;padding:18px 18px 30px;overflow-y:auto;line-height:2;font-size:16px;color:#3a3a3a;background:#f5efe6}
+.rd .rb p{margin-bottom:12px;text-indent:2em;word-break:break-word}
+.rd .rb .sep{text-align:center;color:#c0b8aa;font-size:14px;margin:6px 0;text-indent:0}
+.rd .rb .end{margin-top:24px;color:#c0b8aa;font-size:13px;text-align:center;padding:16px 0;border-top:1px solid #e0d8cc;text-indent:0}
+.btm{position:fixed;bottom:0;left:0;right:0;z-index:100;background:#fff;display:flex;justify-content:space-around;align-items:center;padding:5px 0 7px;border-top:1px solid #eee}
+.btm .bi{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10px;color:#999;cursor:pointer;min-width:48px}
+.btm .bi i{font-size:20px;line-height:1;font-style:normal}
+.btm .bi.c{color:#e74c3c}
+.ld{text-align:center;padding:60px 0;color:#999;font-size:13px;grid-column:1/-1}
+.ld .sp{display:inline-block;width:24px;height:24px;border:3px solid #eee;border-top-color:#e74c3c;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
-
 <div class="toast" id="toast"></div>
-
-<div class="top">
-  <div class="nm">龙息<span>书摊</span></div>
-  <div class="sb" onclick="T('搜索功能即将上线')">
-    <i>&#x2315;</i>
-    <input type="text" placeholder="搜小说、作者..." readonly>
-  </div>
-  <i class="mb" onclick="T('消息中心')">&#x2709;</i>
-</div>
-
-<div class="bw">
-  <div class="bn" id="bn">
-    <div class="bs" id="bs"></div>
-    <div class="bd" id="bd"></div>
-  </div>
-</div>
-
-<div class="cn">
-  <div class="ci" onclick="F('玄幻')"><i class="ic">玄</i><span>玄幻</span></div>
-  <div class="ci" onclick="F('都市')"><i class="ic">都</i><span>都市</span></div>
-  <div class="ci" onclick="F('言情')"><i class="ic">言</i><span>言情</span></div>
-  <div class="ci" onclick="F('悬疑')"><i class="ic">悬</i><span>悬疑</span></div>
-  <div class="ci" onclick="F('轻小说')"><i class="ic">轻</i><span>轻小说</span></div>
-</div>
-
-<div class="tb" id="tb">
-  <div class="tb-i c" data-c="all">推荐</div>
-  <div class="tb-i" data-c="玄幻">玄幻</div>
-  <div class="tb-i" data-c="都市">都市</div>
-  <div class="tb-i" data-c="言情">言情</div>
-  <div class="tb-i" data-c="悬疑">悬疑</div>
-  <div class="tb-i" data-c="历史">历史</div>
-  <div class="tb-i" data-c="科幻">科幻</div>
-</div>
-
-<div class="bl" id="bl"></div>
-
-<div class="btm">
-  <div class="bi c"><i>&#x1F4DA;</i><span>书城</span></div>
-  <div class="bi" onclick="T('书架功能即将上线')"><i>&#x1F4CB;</i><span>书架</span></div>
-  <div class="bi" onclick="T('有声专区即将上线')"><i>&#x1F3A7;</i><span>有声</span></div>
-  <div class="bi" onclick="T('个人中心即将上线')"><i>&#x1F464;</i><span>我的</span></div>
-</div>
-
-<div class="rd" id="rd">
-  <div class="rh">
-    <i onclick="closeReader()">&#x2715;</i>
-    <span class="rt" id="rt">章节标题</span>
-    <i onclick="T('目录')">&#x2630;</i>
-  </div>
-  <div class="rb" id="rb"><p>加载中...</p></div>
-  <div class="rf">
-    <button class="ab" onclick="T('看视频解锁下一章')">看广告解锁</button>
-    <button onclick="T('解锁中，请稍候...')">下一章</button>
-  </div>
-</div>
-
+<div class="top"><div class="nm">龙息<span>书摊</span></div><div class="sb" onclick="T('搜索功能即将上线')">⌕<input placeholder="搜搜故事..." readonly></div></div>
+<div class="bw"><div class="bn"><div class="bs" id="bs"></div><div class="bd" id="bd"></div></div></div>
+<div class="tb" id="tb"></div>
+<div class="bl" id="bl"><div class="ld"><div class="sp"></div><br>正在加载故事...</div></div>
+<div class="btm"><div class="bi c"><i>📚</i><span>书摊</span></div><div class="bi" onclick="T('分类功能即将上线')"><i>📋</i><span>分类</span></div><div class="bi" onclick="T('书架功能即将上线')"><i>📬</i><span>书架</span></div><div class="bi" onclick="T('个人中心即将上线')"><i>👤</i><span>我的</span></div></div>
+<div class="rd" id="rd"><div class="rh"><i class="bk" onclick="closeReader()">←</i><span class="rt" id="rt"></span><span class="ad" id="ra"></span></div><div class="rb" id="rb"></div></div>
 <script>
-var DB=[];
-var API_BASE = 'http://' + window.location.hostname + ':3000';
 
-// 从后端加载
-async function loadSiteBooks(){
-  try{
-    var r=await fetch(API_BASE+'/api/site/books');
-    var d=await r.json();
-    if(d.ok&&d.data.length){
-      DB=d.data;
-      // 补全封面URL
-      for(var i=0;i<DB.length;i++){
-        if(!DB[i].cover)DB[i].cover='https://picsum.photos/seed/book'+(i+1)+'/300/400';
-      }
-      rdBanner();
-      renderList();
-    }else{
-      loadDemoData();
-    }
-  }catch(e){
-    loadDemoData();
-  }
-}
+var DB=[];var cur="all",bni=0,bnt=null;var BOOKS_URL="./books.json";
+function T(m){var e=document.getElementById("toast");e.textContent=m;e.className="toast s";clearTimeout(e._t);e._t=setTimeout(function(){e.className="toast";},1800);}
+async function loadSiteBooks(){try{var r=await fetch(BOOKS_URL);if(!r.ok){document.getElementById("bl").innerHTML='<div class="ld">加载失败</div>';return;}var data=await r.json();if(data.data) DB=data.data;else if(Array.isArray(data)) DB=data;else DB=[];if(!DB.length){document.getElementById("bl").innerHTML='<div class="ld">暂无故事</div>';return;}initTabs();rdBanner();renderList();}catch(e){document.getElementById("bl").innerHTML='<div class="ld">网络错误</div>';}}
 
-// 演示数据
-function loadDemoData(){
-  DB=[
-    {i:1,t:"万古第一神",a:"风青阳",g:"玄幻",p:"4.8",n:"3582",b:"hot",d:"天命不堪，万古第一！少年李七夜横推九天十地...",s:"万古第一神讲述了少年李七夜从凡体崛起，历经万劫终成至高神的故事。他携雷霆之势横扫诸天万界，与红颜知己共闯九幽秘境，破解太古神族遗留的惊世谜局。"},
-    {i:2,t:"一剑独尊",a:"青鸾峰上",g:"玄幻",p:"4.7",n:"4210",b:"hot",d:"一剑破万法！少年叶凡执剑逆天而行...",s:"少年叶凡遭人陷害，被打落凡尘，却意外获得太古剑帝传承。从此持一剑，斩尽天下敌！看他如何从微末中崛起，一剑独尊于九天之上。"},
-    {i:3,t:"修罗武神",a:"善良的蜜蜂",g:"玄幻",p:"4.6",n:"5621",b:"hot",d:"修罗之身，逆天改命！楚枫从凡尘崛起...",s:"楚枫本是家族弃子，却意外觉醒修罗武魂。从此踏上复仇之路，以修罗之力横扫八荒，最终登临武道之巅。"},
-    {i:4,t:"全职高手",a:"蝴蝶蓝",g:"都市",p:"4.9",n:"1728",b:"hot",d:"荣耀永不散场！叶修被逐出俱乐部后...",s:"电竞大神叶修被俱乐部驱逐，在荣耀新区重新崛起。他带领一群草根队友，用实力证明——荣耀，从来不是一个人的游戏！"},
-    {i:5,t:"最佳女婿",a:"陪你倒数",g:"都市",p:"4.5",n:"2340",d:"入赘三年，受尽白眼。直到那一天...",s:"入赘三年的上门女婿林阳，忍受着岳父岳母的白眼。直到某天，他的真实身份曝光，所有人都震惊了！"},
-    {i:6,t:"超品相师",a:"九灯和善",g:"都市",p:"4.6",n:"2891",d:"一卦定乾坤！相师秦宇的逆袭人生...",s:"秦宇偶得相师传承，从此看相算命、风水布局无所不能。且看他如何凭借一身玄学之术，在都市中混得风生水起。"},
-    {i:7,t:"何以笙箫默",a:"顾漫",g:"言情",p:"4.9",n:"268",b:"new",d:"如果世界上曾经有那个人出现过...",s:"七年分离，七年等待。赵默笙和何以琛的爱情故事，感动了无数读者。有些人的出现，就是为了惊艳你的时光。"},
-    {i:8,t:"微微一笑很倾城",a:"顾漫",g:"言情",p:"4.8",n:"198",b:"new",d:"游戏里虐菜，现实中虐狗。贝微微的爱情...",s:"计算机系系花贝微微在游戏中嫁给高手一笑，没想到这个游戏里的老公，竟然是校园男神肖奈大神！"},
-    {i:9,t:"盗墓笔记",a:"南派三叔",g:"悬疑",p:"4.9",n:"1432",b:"hot",d:"五十年前，长沙镖子岭。一个土夫子...",s:"吴邪意外卷入了一场横跨千年的古墓迷局。从七星鲁王宫到云顶天宫，他和张起灵、王胖子一起，揭开了一个惊天秘密。"},
-    {i:10,t:"鬼吹灯",a:"天下霸唱",g:"悬疑",p:"4.8",n:"1234",d:"胡八一、王胖子和Shirley杨的探险之旅...",s:"胡八一凭着一本十六字阴阳风水秘术，与好友王胖子、Shirley杨一起，开启了一段惊心动魄的古墓探险之旅。"},
-    {i:11,t:"明朝那些事儿",a:"当年明月",g:"历史",p:"4.9",n:"824",d:"以史料为基础，以年代和具体人物为主线...",s:"以幽默风趣的语言讲述明朝三百年的历史。从朱元璋的崛起到崇祯帝的自缢，每一个历史人物都鲜活地跃然纸上。"},
-    {i:12,t:"庆余年",a:"猫腻",g:"历史",p:"4.8",n:"1436",b:"hot",d:"一个身世神秘的少年，一场横跨两朝的权谋...",s:"范闲自小随奶奶生活在澹州，身世成谜。当他踏入京都这片是非之地，一场关于权力、亲情与爱情的宏大叙事就此展开。"},
-    {i:13,t:"三体",a:"刘慈欣",g:"科幻",p:"5.0",n:"312",b:"hot",d:"文化大革命如火如荼地进行的同时...",s:"军方探寻外星文明的绝秘计划红岸工程取得了突破性进展。但在按下发射键的那一刻，人类文明向宇宙发出的第一声啼鸣，彻底改变了人类的命运。"},
-    {i:14,t:"流浪地球",a:"刘慈欣",g:"科幻",p:"4.7",n:"86",d:"太阳即将毁灭，人类开启流浪地球计划...",s:"太阳急速老化，即将膨胀为红巨星吞没整个太阳系。人类启动流浪地球计划，在地球表面建造上万座行星发动机，推动地球离开太阳系。"}
-  ];
-  // 补封面
-  for(var i=0;i<DB.length;i++){DB[i].c='https://picsum.photos/seed/book'+(i+1)+'/300/400';}
-  rdBanner();
-  renderList();
-}
 
-var cur="all",bni=0,bnt=null;
+function initTabs(){var cats={"悬疑": 1, "都市": 1, "科幻": 1};
+var keys=["全部"];for(var k in cats)keys.push(k);
+var order={"悬疑": 1, "都市": 2, "科幻": 3};
+keys.sort(function(a,b){if(a==="全部")return -1;if(b==="全部")return 1;var oa=order[a]||99,ob=order[b]||99;return oa-ob;});
+var tb=document.getElementById("tb");var h="";
+for(var i=0;i<keys.length;i++){var cl=i===0?"tb-i c":"tb-i";h+='<div class="'+cl+'" data-c="'+keys[i]+'">'+keys[i]+'</div>';}
+tb.innerHTML=h;
+var els=document.querySelectorAll(".tb .tb-i");
+for(var i=0;i<els.length;i++){els[i].addEventListener("click",function(){filter(this.dataset.c);});}}
 
-function rdBanner(){
-  var s=document.getElementById("bs"),d=document.getElementById("bd");
-  var hs=[];
-  for(var i=0;i<DB.length&&hs.length<4;i++){if(DB[i].b=="hot")hs.push(DB[i]);}
-  if(!hs.length)return;
-  var h="";
-  for(var i=0;i<hs.length;i++){
-    var x=hs[i];
-    h+='<div class="bi" onclick="openR('+x.i+')">'+
-      '<div class="bg" style="background-image:url('+x.c+')"></div>'+
-      '<div class="msk"></div><div class="if"><h2>'+x.t+'</h2><p>'+x.d+'</p></div></div>';
-  }
-  s.innerHTML=h;
-  h="";
-  for(var i=0;i<hs.length;i++){h+='<span'+(i==0?' class="c"':'')+'></span>';}
-  d.innerHTML=h;
-  startBanner();
-}
 
-function startBanner(){
-  if(bnt)clearInterval(bnt);
-  var s=document.getElementById("bs"),d=document.querySelectorAll("#bd span");
-  var c=0;
-  for(var i=0;i<DB.length;i++){if(DB[i].b=="hot")c++;}
-  if(c<2)return;
-  bnt=setInterval(function(){
-    bni=(bni+1)%c;
-    s.style.transform="translateX(-"+(bni*100)+"%)";
-    for(var i=0;i<d.length;i++){d[i].className=i==bni?"c":"";}
-  },3500);
-}
-
-function filter(g){cur=g||"all";
-  var t=document.querySelectorAll(".tb .tb-i");
-  for(var i=0;i<t.length;i++){t[i].className=t[i].dataset.c==cur?"tb-i c":"tb-i";}
-  renderList();
-}
-
-function renderList(){
-  var l=document.getElementById("bl");
-  var books=cur=="all"?DB:DB.filter(function(x){return x.g==cur;});
-  if(!books.length){
-    l.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:#999;">暂无该分类书籍</div>';
-    return;
-  }
-  var h="";
-  for(var i=0;i<books.length;i++){
-    var x=books[i];
-    var tag=x.b?'<span class="tg '+(x.b=="hot"?"h":"n")+'">'+(x.b=="hot"?"热门":"新书")+'</span>':"";
-    h+='<div class="bc" onclick="openR('+x.i+')">'+
-      '<div class="cv"><img src="'+x.c+'" alt="'+x.t+'" onerror="this.outerHTML=\'<span style=font-size:32px;color:#bbb;>书</span>\'">'+tag+'</div>'+
-      '<div class="if"><h4>'+x.t+'</h4><div class="au">'+x.a+'</div>'+
-      '<div class="mt"><span class="st">&#x2605; '+x.p+'</span><span>'+x.n+'集</span></div></div></div>';
-  }
-  l.innerHTML=h;
-}
-
-function openR(id){
-  var x=null;
-  for(var i=0;i<DB.length;i++){if(DB[i].i==id){x=DB[i];break;}}
-  if(!x)return;
-  document.getElementById("rt").textContent=x.t+" - 第1章";
-  document.getElementById("rb").innerHTML="<p>"+x.s+"</p><p>"+x.d+'</p><p style="text-align:center;color:#999;font-size:14px;margin-top:20px;">&#x2014; 后续内容请解锁后阅读 &#x2014;</p>';
-  document.getElementById("rd").className="rd s";
-  document.getElementById("rb").scrollTop=0;
-}
-
+function rdBanner(){var s=document.getElementById("bs"),d=document.getElementById("bd");var hs=[];for(var i=0;i<DB.length&&hs.length<5;i++){if(DB[i].b==="hot"||DB[i].badge==="hot")hs.push(DB[i]);}if(!hs.length){for(var i=0;i<Math.min(DB.length,4);i++)hs.push(DB[i]);}if(!hs.length)return;var h="";for(var i=0;i<hs.length;i++){var x=hs[i];var ct=x.t||x.title||"";var cd=x.d||x.description||"";var cc=x.c||x.cover||"";h+='<div class="bi" onclick="openR('+(x.id||x.i)+','+(x.i||0)+')"><div class="bg" style="background-image:url('+cc+')"></div><div class="msk"></div><div class="if"><h2>'+ct+'</h2><p>'+cd.substring(0,40)+'</p></div></div>';}s.innerHTML=h;h="";for(var i=0;i<hs.length;i++){h+='<span'+(i===0?' class="c"':'')+'></span>';}d.innerHTML=h;startBanner(hs.length);}
+function startBanner(c){if(bnt)clearInterval(bnt);if(c<2)return;var s=document.getElementById("bs");var d=document.querySelectorAll("#bd span");bnt=setInterval(function(){bni=(bni+1)%c;s.style.transform='translateX(-'+(bni*100)+'%)';for(var i=0;i<d.length;i++){d[i].className=i===bni?"c":"";}},3500);}
+function filter(g){cur=g||"all";var t=document.querySelectorAll(".tb .tb-i");for(var i=0;i<t.length;i++){var v=t[i].dataset.c;t[i].className=(v===cur||(cur==="all"&&v==="全部"))?"tb-i c":"tb-i";}renderList();}
+function renderList(){var l=document.getElementById("bl");var books=cur==="全部"||cur==="all"?DB:DB.filter(function(x){return (x.g||x.category||"其他")===cur;});if(!books.length){l.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:#999;font-size:14px;">该分类暂无故事<br><span style="font-size:12px;color:#bbb;">换个分类看看吧</span></div>';return;}var h="";for(var i=0;i<books.length;i++){var x=books[i];var id=x.id||x.i||0;var tit=x.title||x.t||"";var aut=x.author||x.a||"匿名";var cov=x.cover||x.c||"";var rat=x.rating||x.p||"4.5";var eps=x.episodes||x.n||"0";var badge=x.badge||x.b||"";var tag=badge?'<span class="tg '+(badge==="hot"?"h":"n")+'">'+(badge==="hot"?"热门":"新书")+'</span>':"";h+='<div class="bc" onclick="openR('+id+','+(x.i||0)+')"><div class="cv"><img src="'+cov+'" alt="'+tit+'" onerror="this.outerHTML='+"'<div style=width:100%;height:100%;background:linear-gradient(135deg,#e74c3c,#e67e22);display:flex;align-items:center;justify-content:center;font-size:40px;color:rgba(255,255,255,.6);>书</div>'"+'">'+tag+'</div><div class="if"><h4>'+tit+'</h4><div class="au">'+aut+'</div><div class="mt"><span class="st">&#9733; '+rat+'</span><span>'+eps+'集</span></div></div></div>';}l.innerHTML=h;}
+function findBook(id,idx){for(var i=0;i<DB.length;i++){var x=DB[i];if(x.id===id||x.i===id||x.i===idx)return x;}return null;}
+function openR(id,idx){var x=findBook(id,idx);if(!x){T("故事不存在");return;}var tit=x.title||x.t||"";var aut=x.author||x.a||"";var summary=x.summary||x.s||"";document.getElementById("rt").textContent=tit;document.getElementById("ra").textContent=aut;var paras=summary.split("\n");var html="";for(var i=0;i<paras.length;i++){var p=paras[i].trim();if(!p)continue;if(p.indexOf("—")===0||p.length<3){html+='<p class="sep">'+p+'</p>';}else{var sentences=p.split(/[。！？]/);var chunk="";for(var j=0;j<sentences.length;j++){if(!sentences[j].trim())continue;chunk+=sentences[j].trim()+(j<sentences.length-1?"。":"");if(chunk.length>60||j===sentences.length-1){html+='<p>'+chunk+'</p>';chunk="";}}}}html+='<p class="end">— 未完待续，关注“龙息书摊”看更多故事 —</p>';document.getElementById("rb").innerHTML=html;document.getElementById("rd").className="rd s";document.getElementById("rb").scrollTop=0;}
 function closeReader(){document.getElementById("rd").className="rd";}
-function T(m){var e=document.getElementById("toast");e.textContent=m;e.className="toast s";
-  clearTimeout(e._t);e._t=setTimeout(function(){e.className="toast";},1800);}
-
-var tb=document.querySelectorAll(".tb .tb-i");
-for(var i=0;i<tb.length;i++){tb[i].addEventListener("click",function(){filter(this.dataset.c);});}
-
 loadSiteBooks();
+
 </script>
 </body>
 </html>
