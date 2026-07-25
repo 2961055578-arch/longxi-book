@@ -77,7 +77,41 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 
 var DB=[];var cur="all",bni=0,bnt=null;var BOOKS_URL="./books.json";
 function T(m){var e=document.getElementById("toast");e.textContent=m;e.className="toast s";clearTimeout(e._t);e._t=setTimeout(function(){e.className="toast";},1800);}
-async function loadSiteBooks(){try{var r=await fetch(BOOKS_URL);if(!r.ok){document.getElementById("bl").innerHTML='<div class="ld">加载失败</div>';return;}var data=await r.json();if(data.data) DB=data.data;else if(Array.isArray(data)) DB=data;else DB=[];if(!DB.length){document.getElementById("bl").innerHTML='<div class="ld">暂无故事</div>';return;}initTabs();rdBanner();renderList();}catch(e){document.getElementById("bl").innerHTML='<div class="ld">网络错误</div>';}}
+async function loadSiteBooks(){
+  // 优先从后端 API 读取（本地环境实时同步）
+  async function tryAPI() {
+    try {
+      var r = await fetch("/api/site/books");
+      if (!r.ok) return null;
+      var d = await r.json();
+      if (d.data && d.data.length) return d.data;
+      return null;
+    } catch(e) { return null; }
+  }
+  async function tryFile() {
+    try {
+      var r = await fetch(BOOKS_URL + "?t=" + Date.now());
+      if (!r.ok) return null;
+      var d = await r.json();
+      if (d.data) return d.data;
+      if (Array.isArray(d) && d.length) return d;
+      return null;
+    } catch(e) { return null; }
+  }
+  try {
+    var books = await tryAPI() || await tryFile();
+    if (books && books.length) {
+      DB = books;
+      initTabs();
+      rdBanner();
+      renderList();
+    } else {
+      document.getElementById("bl").innerHTML='<div class="ld">暂无故事</div>';
+    }
+  } catch(e) {
+    document.getElementById("bl").innerHTML='<div class="ld">网络错误</div>';
+  }
+}
 
 
 function initTabs(){var cats={"悬疑": 1, "都市": 1, "科幻": 1};
